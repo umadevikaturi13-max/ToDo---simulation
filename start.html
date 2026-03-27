@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Character</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+<h2>Select Your Character</h2>
+<form id="start-form">
+    <div class="characters">
+        <label class="character">
+        <input type="radio" name="character" value="girl" required hidden>
+        <img src="static/girl.png" class="char" height="170">
+        </label>
+
+        <label class="character">
+        <input type="radio" name="character" value="boy" hidden>
+        <img src="https://png.pngtree.com/png-vector/20241010/ourmid/pngtree-a-helpless-boy-begging-png-image_14040253.png" class="char">
+        </label>
+
+        <label class="character">
+        <input type="radio" name="character" value="oldwoman" hidden>
+        <img src="https://thumbs.dreamstime.com/b/vsai-sad-elderly-homeless-woman-wearing-orange-scarf-sitting-sidewalk-begging-money-vsai-elderly-homeless-woman-begging-415896837.jpg" class="char">
+        </label>
+
+        <label class="character">
+        <input type="radio" name="character" value="beggar" hidden>
+        <img src="https://img.freepik.com/premium-vector/poor-sad-beggar-cartoon-vector-clip-art-image_1080480-105130.jpg?semt=ais_rp_50_assets&w=740&q=80" class="char">
+        </label>
+    </div>
+
+    <br>
+
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <br><br>
+
+    <input type="number" name="age" placeholder="Enter Age" required>
+    <br><br>
+
+    <button type="submit">Start Life</button>
+
+</form>
+
+<script>
+    document.getElementById("start-form").addEventListener("submit", function(e) {
+        e.preventDefault(); // prevent page reload
+
+        // Get form values
+        let name = document.querySelector('input[name="name"]').value;
+        let age = document.querySelector('input[name="age"]').value;
+        let character = document.querySelector('input[name="character"]:checked').value;
+
+        // Save to localStorage to pass to game.html
+        localStorage.setItem("name", name);
+        localStorage.setItem("age", age);
+        localStorage.setItem("character", character);
+
+        // Go to game page
+        window.location.href = "game.html";
+    });
+</script>
+
+</body>
+</html>
